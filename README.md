@@ -5,8 +5,8 @@
 - Nome: Pedro Augusto Silva Figueiredo
 - Matrícula: 19.1.8054
 - Curso: Sistemas de Informação
-- Semestre/Ano correntes: 8
-- Link para o seu GitHub: https://github.com/UFOP-CSI477/2022-02-atividades-bigodom
+- Semestre/Ano correntes: 8 semestre
+- Link para o seu GitHub: https://github.com/bigodom
 
 ## [Projeto final:](./Projeto/README.md)
 
