@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Estado {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  sigla     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Cidades Cidade[]
+
+  @@map("estados")
+}
+
+model Cidade {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  estadoId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Estado       Estado         @relation(fields: [estadoId], references: [id])
+  Local_coleta Local_coleta[]
+  Unidade      Unidade[]
+  Pessoa       Pessoa[]
+
+  @@map("cidades")
+}
+
+model Local_coleta {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  rua         String
+  numero      String
+  complemento String
+  cidadeId    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  Cidade Cidade   @relation(fields: [cidadeId], references: [id])
+  Doacao Doacao[]
+
+  @@map("locais_coleta")
+}
+
+model Unidade {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  numero      String
+  complemento String
+  cidadeId    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  Cidade       Cidade         @relation(fields: [cidadeId], references: [id])
+  Distribuicao Distribuicao[]
+
+  @@map("unidades")
+}
+
+model Doacao {
+  id        Int      @id @default(autoincrement())
+  pessoaId  Int
+  localId   Int
+  data      DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Local_coleta Local_coleta @relation(fields: [localId], references: [id])
+  Produto      Produto[]
+
+  @@map("doacoes")
+}
+
+model Pessoa {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  rua         String
+  numero      String
+  complemento String
+  documento   String
+  cidadeId    Int
+  tipoId      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  Cidade         Cidade         @relation(fields: [cidadeId], references: [id])
+  Tipo_sanguineo Tipo_sanguineo @relation(fields: [tipoId], references: [id])
+
+  @@map("pessoas")
+}
+
+model Tipo_sanguineo {
+  id        Int      @id @default(autoincrement())
+  tipo      String
+  fator     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Pessoa    Pessoa[]
+
+  @@map("tipos_sanguineos")
+}
+
+model Produto {
+  id        Int      @id @default(autoincrement())
+  etiqueta  String
+  doacaoId  Int
+  validade  DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Doacao       Doacao         @relation(fields: [doacaoId], references: [id])
+  Distribuicao Distribuicao[]
+
+  @@map("produtos")
+}
+
+model Distribuicao {
+  id        Int      @id @default(autoincrement())
+  unidadeId Int
+  produtoId Int
+  data      DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Unidade Unidade @relation(fields: [unidadeId], references: [id])
+  Produto Produto @relation(fields: [produtoId], references: [id])
+
+  @@map("distribuicoes")
+}
