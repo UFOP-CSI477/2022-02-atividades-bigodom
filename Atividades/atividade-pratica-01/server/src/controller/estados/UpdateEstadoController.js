@@ -6,7 +6,7 @@ export class UpdateEstadoController {
 
         const estado = await prisma.estado.update({
             where: { id },
-            data: { nome, sigla, updatedAt: new Date() }
+            data: { nome, sigla, updated_at: new Date() }
         });
 
         return response.json(estado);
