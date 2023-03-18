@@ -23,7 +23,7 @@ tipoRouter.get('/tipos/:id', getByIdTipoController.handle);
 tipoRouter.post('/tipos', createTipoController.handle);
 
 // Update tipo
-tipoRouter.put('/tipos', updateTipoController.handle);
+tipoRouter.put('/tipos/:id', updateTipoController.handle);
 
 // Delete tipo
 tipoRouter.delete('/tipos/:id', deleteTipoController.handle);

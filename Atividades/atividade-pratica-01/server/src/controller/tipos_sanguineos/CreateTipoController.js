@@ -9,6 +9,7 @@ export class CreateTipoController{
                 fator,
                 tipo
             }
+            
         });
 
         console.log(tipo_sanguineo);

@@ -5,6 +5,7 @@ export class UpdateTipoController {
     async handle(req, res) {
 
         const { tipo, fator } = req.body;
+        const { id } = req.params;
 
         const tipo_sanguineo = await prisma.tipo_sanguineo.update({
 
