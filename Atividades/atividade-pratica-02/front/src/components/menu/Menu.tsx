@@ -1,13 +1,9 @@
-
 import { Link } from 'react-router-dom'
-import './menu.css'
+import './Menu.css'
 
 const Menu = () => {
-
-
-
     return (
-        <div className="menu">
+        <div className="Menu">
             <h2>Menu</h2>
             <ul>
                 <li><Link to="/">Home</Link></li>

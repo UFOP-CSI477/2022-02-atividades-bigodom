@@ -5,6 +5,7 @@ import { GetAllCidadeController } from '../controller/cidades/GetAllCidadeContro
 import { GetByIdCidadeController } from '../controller/cidades/GetByIdCidadeController.js'
 import { UpdateCidadeController } from '../controller/cidades/UpdateCidadeController.js'
 import { DeleteCidadeController } from '../controller/cidades/DeleteCidadeController.js'
+import { GetCidadeByEstadoController } from '../controller/cidades/GetCidadeByEstadoController.js'
 
 
 const cidadeRouter = Router()
@@ -14,6 +15,7 @@ const getAllCidadeController = new GetAllCidadeController()
 const getByIdCidadeController = new GetByIdCidadeController()
 const updateCidadeController = new UpdateCidadeController()
 const deleteCidadeController = new DeleteCidadeController()
+const getCidadeByEstadoController = new GetCidadeByEstadoController()
 
 
 
@@ -22,6 +24,7 @@ cidadeRouter.post('/cidades', createCidadeController.handle)
 cidadeRouter.get('/cidades/:id', getByIdCidadeController.handle)
 cidadeRouter.put('/cidades', updateCidadeController.handle)
 cidadeRouter.delete('/cidades', deleteCidadeController.handle)
+cidadeRouter.get('/cidades/estado/:id', getCidadeByEstadoController.handle)
 
 export { cidadeRouter }
 
