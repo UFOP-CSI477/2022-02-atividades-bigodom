@@ -5,6 +5,8 @@ import { cidadeRouter } from './routes/cidade.js';
 import { mainRouter } from './routes/main.js';
 import { tipoRouter } from './routes/tipo.js';
 import { pessoaRouter } from './routes/pessoa.js';
+import { localRouter } from './routes/local.js';
+import { doacaoRouter } from './routes/doacao.js';
 
 const PORT = 3000;
 
@@ -18,6 +20,8 @@ app.use(estadoRouter);
 app.use(cidadeRouter);
 app.use(tipoRouter);
 app.use(pessoaRouter);
+app.use(localRouter);
+app.use(doacaoRouter);
 
 //server - start/listen
 app.listen(PORT, () => {

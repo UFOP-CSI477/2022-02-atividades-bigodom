@@ -5,7 +5,7 @@ export class GetByIdTipoController {
         const { id } = req.params;
         const tipo = await prisma.tipo_sanguineo.findUnique({
             where: {
-                id: ParseInt(id),
+                id: parseInt(id),
             }
         });
         return res.json(tipo);

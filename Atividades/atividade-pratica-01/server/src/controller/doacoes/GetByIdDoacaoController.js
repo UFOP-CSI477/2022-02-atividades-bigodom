@@ -1,13 +1,13 @@
 import { prisma } from "../../database/client.js";
 
-export class GetByIdEstadoController {
+export class GetByIdDoacaoController {
     async handle(req, res) {
         const { id } = req.params;
-        const estado = await prisma.estado.findUnique({
+        const doacao = await prisma.doacao.findUnique({
             where: {
                 id: parseInt(id),
             }
         });
-        return res.json(estado);
+        return res.json(doacao);
     }
 }

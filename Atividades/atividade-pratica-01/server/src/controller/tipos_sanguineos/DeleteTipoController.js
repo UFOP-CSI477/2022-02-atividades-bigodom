@@ -1,21 +1,21 @@
 import { prisma } from '../../database/client.js';
 
-export class DeletePessoaController {
+export class DeleteTipoController {
 
     async handle(req, res) {
         const { id } = req.params;
 
         try {
-            const pessoa = await prisma.pessoa.delete({
+            const tipo = await prisma.tipo_sanguineo.delete({
                 where: {
                     id: parseInt(id)
                 }
             });
-            return res.json(pessoa);
+            return res.json(tipo);
         }
         catch (err) {
             console.error(err)
-            return res.status(400).json({ error: "pessoa não encontrada" });
+            return res.status(400).json({ error: "tipo não encontrada" });
         }
         
     }

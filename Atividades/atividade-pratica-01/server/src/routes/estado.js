@@ -7,11 +7,11 @@ import { UpdateEstadoController } from '../controller/estados/UpdateEstadoContro
 
 const estadoRouter = Router();
 
-const getAllEstadoController = new GetAllEstadoController
-const createEstadoController = new CreateEstadoController
-const getByIdEstadoController = new GetByIdEstadoController
-const updateEstadoController = new UpdateEstadoController
-const deleteEstadoController = new DeleteEstadoController
+const getAllEstadoController = new GetAllEstadoController()
+const createEstadoController = new CreateEstadoController()
+const getByIdEstadoController = new GetByIdEstadoController()
+const updateEstadoController = new UpdateEstadoController()
+const deleteEstadoController = new DeleteEstadoController()
 
 // Get all estados
 estadoRouter.get('/estados', getAllEstadoController.handle);

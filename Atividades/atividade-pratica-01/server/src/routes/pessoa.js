@@ -26,6 +26,6 @@ pessoaRouter.get('/pessoas/:id', getByIdPessoaController.handle);
 pessoaRouter.put('/pessoas', updatePessoaController.handle);
 
 // Delete pessoa
-pessoaRouter.delete('/pessoas/deletar/:id', deletePessoaController.handle);
+pessoaRouter.delete('/pessoas/:id', deletePessoaController.handle);
 
 export { pessoaRouter };

@@ -1,13 +1,13 @@
 import { prisma } from "../../database/client.js";
 
-export class GetByIdEstadoController {
+export class GetByIdLocalController {
     async handle(req, res) {
         const { id } = req.params;
-        const estado = await prisma.estado.findUnique({
+        const local = await prisma.local_coleta.findUnique({
             where: {
                 id: parseInt(id),
             }
         });
-        return res.json(estado);
+        return res.json(local);
     }
 }
