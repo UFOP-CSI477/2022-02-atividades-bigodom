@@ -5,11 +5,12 @@ export class UpdateLocalController {
     async handle(req, res) {
 
         const { nome, rua, numero, complemento, cidade_id } = req.body;
+        const { id } = req.params;
 
         const local = await prisma.local_coleta.update({
 
             where: {
-                id: parseInt(req.params.id),
+                id: parseInt(id),
             },
             data: {
                 nome,

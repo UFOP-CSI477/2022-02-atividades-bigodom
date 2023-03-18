@@ -24,7 +24,7 @@ localRouter.get('/local/:id', getByIdLocalController.handle);
 localRouter.post('/local', createLocalController.handle);
 
 // Update local
-localRouter.put('/local', updateLocalController.handle);
+localRouter.put('/local/:id', updateLocalController.handle);
 
 // Delete local
 localRouter.delete('/local/:id', deleteLocalController.handle);
