@@ -19,7 +19,7 @@ export class CreatePessoaController{
                         id: cidade_id
                     }
                 },
-                Tipo: {
+                Tipo_sanguineo: {
                     connect: {
                         id: tipo_id
                     }

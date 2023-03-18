@@ -9,7 +9,8 @@ export class GetByIdPessoaController {
                 id: parseInt(id),
             },
             include: {
-                Cidade: true
+                Cidade: true,
+                Tipo_sanguineo: true
             }
         });
         return res.json(pessoa);

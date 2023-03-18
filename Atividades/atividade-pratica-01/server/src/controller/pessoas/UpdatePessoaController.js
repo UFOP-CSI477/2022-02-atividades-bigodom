@@ -4,7 +4,8 @@ export class UpdatePessoaController {
 
     async handle(req, res) {
 
-        const { id, nome, estado_id } = req.body;
+        const { nome, rua, numero, complemento, documento, cidade_id, tipo_id } = req.body;
+        const { id } = req.params;
 
         const pessoa = await prisma.pessoa.update({
 
@@ -13,10 +14,18 @@ export class UpdatePessoaController {
             },
             data: {
                 nome,
-                updated_at: new Date(),
-                Estado: {
+                rua,
+                numero,
+                complemento,
+                documento,
+                Cidade: {
                     connect: {
-                        id: estado_id
+                        id: cidade_id
+                    }
+                },
+                Tipo_sanguineo: {
+                    connect: {
+                        id: tipo_id
                     }
                 }
             }

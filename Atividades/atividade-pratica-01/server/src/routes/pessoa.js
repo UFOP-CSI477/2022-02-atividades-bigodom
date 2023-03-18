@@ -23,7 +23,7 @@ pessoaRouter.get('/pessoas', getAllPessoaController.handle);
 pessoaRouter.get('/pessoas/:id', getByIdPessoaController.handle);
 
 // Update pessoa
-pessoaRouter.put('/pessoas', updatePessoaController.handle);
+pessoaRouter.put('/pessoas/:id', updatePessoaController.handle);
 
 // Delete pessoa
 pessoaRouter.delete('/pessoas/:id', deletePessoaController.handle);
