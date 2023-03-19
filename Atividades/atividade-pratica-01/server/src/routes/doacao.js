@@ -24,7 +24,7 @@ doacaoRouter.post("/doacoes", createDoacaoController.handle);
 doacaoRouter.get("/doacoes/:id", getByIdDoacaoController.handle);
 
 // Update doacao
-doacaoRouter.put("/doacoes", updateDoacaoController.handle);
+doacaoRouter.put("/doacoes/:id", updateDoacaoController.handle);
 
 // Delete doacao
 doacaoRouter.delete("/doacoes/:id", deleteDoacaoController.handle);

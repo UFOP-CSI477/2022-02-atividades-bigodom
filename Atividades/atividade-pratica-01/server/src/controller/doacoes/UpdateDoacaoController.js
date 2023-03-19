@@ -5,6 +5,7 @@ export class UpdateDoacaoController {
     async handle(req, res) {
 
         const { pessoa_id, local_id, data } = req.body;
+        const { id } = req.params;
 
         const doacao = await prisma.doacao.update({
 

@@ -72,12 +72,14 @@ model Doacao {
   id        Int      @id @default(autoincrement())
   pessoaId  Int
   localId   Int
-  data      DateTime
+  data      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   Local_coleta Local_coleta @relation(fields: [localId], references: [id])
-  Produto      Produto[]
+  Pessoa       Pessoa       @relation(fields: [pessoaId], references: [id])
+
+  Produto Produto[]
 
   @@map("doacoes")
 }
@@ -96,6 +98,7 @@ model Pessoa {
 
   Cidade         Cidade         @relation(fields: [cidadeId], references: [id])
   Tipo_sanguineo Tipo_sanguineo @relation(fields: [tipoId], references: [id])
+  Doacao         Doacao[]
 
   @@map("pessoas")
 }
