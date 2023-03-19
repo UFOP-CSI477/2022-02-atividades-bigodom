@@ -12,10 +12,10 @@
     Node.js, Nodemon(postgresql), Express e Axios
     
 ## Para iniciar:
-  1. npm install
-  2. configure o banco de dados criando o arquivo .env
-  3. crie o banco usando o comando: **npm run prisma** e dê um nome a migração
-  4. inicie a API utilizando o comando: **npm run start**
+   1. npm install
+   2. configure o banco de dados criando o arquivo .env
+   3. crie o banco usando o comando: **npm run prisma** e dê um nome a migração
+   4. inicie a API utilizando o comando: **npm run start**
 
 ## Rotas 
   Get all pessoas: http://localhost:3000/pessoas
