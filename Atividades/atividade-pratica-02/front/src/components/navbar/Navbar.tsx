@@ -17,10 +17,10 @@ const Navbar = () => {
                         <li><Link to="/cadastroPessoa" className="nav-link px-2 text-white">Cadastrar Pessoa</Link></li>
                         <li><Link to="/listarPessoas" className="nav-link px-2 text-white">Listar Pessoas</Link></li>
                     </ul>
-                    <div>
+{/*                     <div>
                         <button type="button" className="btn btn-outline-light me-2">Login</button>
                         <button type="button" className="btn btn-outline-warning">Cadastre-se</button>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

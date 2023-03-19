@@ -9,6 +9,7 @@
     "studio": "npx prisma studio",
     "format": "npx prisma format"
   },
+  "type": "module",
   "dependencies": {
     "@prisma/client": "^4.11.0",
     "cors": "^2.8.5",

@@ -10,34 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Car {
-  id          Int           @id @default(autoincrement())
-  plate       String
-  color       String
-  model       String
-  brand       String
-  owner       Client        @relation(fields: [cpfOwner], references: [cpf])
-  cpfOwner    String
-  Maintenance Maintenance[]
+model Carro {
+  id         Int    @id @default(autoincrement())
+  placa      String
+  cor        String
+  modelo     String
+  marca      String
+  cpfCliente String
+
+  cliente    Cliente       @relation(fields: [cpfCliente], references: [cpf])
+  Manutencao Manutencao[]
 }
 
-model Client {
+model Cliente {
   name      String
   cpf       String   @id
   cnh       String
   birthDate DateTime
   email     String
-  Car       Car[]
+
+  carro     Carro[]
 }
 
-model Maintenance {
-  id_maintence Int      @id @default(autoincrement())
-  initialDate  DateTime
-  expectedDate DateTime
-  car          Car      @relation(fields: [id_car], references: [id])
+model Manutencao {
+  id           Int      @id @default(autoincrement())
+  dataEsperada DateTime
   id_car       Int
   status       String
   description  String
   price        Float
-  created_at   DateTime @default(now())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  carro Carro @relation(fields: [id_car], references: [id])
 }
