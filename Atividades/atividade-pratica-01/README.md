@@ -17,6 +17,18 @@
    3. crie o banco usando o comando: **npm run prisma** e dê um nome a migração
    4. inicie a API utilizando o comando: **npm run start**
 
-## Rotas 
-  Get all pessoas: http://localhost:3000/pessoas
-  Get by id pessoa: http://localhost:3000/pessoas/:id
+### Rotas 
+
+# Pessoa
+    Get all pessoas: GET http://localhost:3000/pessoas
+    Get by id pessoa: GET http://localhost:3000/pessoas/:id
+    Create pessoa: POST http://localhost:3000/pessoas
+    Update pessoa: PUT http://localhost:3000/pessoas/:id
+    Delete pessoa: DELETE http://localhost:3000/pessoas/:id
+
+# Tipos Sanguíneos
+    Get all pessoas: GET http://localhost:3000/pessoas
+    Get by id pessoa: GET http://localhost:3000/pessoas/:id
+    Create pessoa: POST http://localhost:3000/pessoas
+    Update pessoa: PUT http://localhost:3000/pessoas/:id
+    Delete pessoa: DELETE http://localhost:3000/pessoas/:id
