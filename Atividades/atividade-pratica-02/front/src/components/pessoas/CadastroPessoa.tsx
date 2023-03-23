@@ -48,7 +48,7 @@ const CadastroPessoaForm = () => {
     const [tipo_sanguineo_id, setTipoSanguineoId] = useState(0);
 
 
-    const handleNewPessoa = async (event: ChangeEvent<HTMLFormElement>) => {
+    const handleNewPessoa = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const data = {
@@ -66,8 +66,8 @@ const CadastroPessoaForm = () => {
             alert('Pessoa cadastrada com sucesso!')
             navigate('/pessoas')
         } catch (error) {
-            alert('Erro ao cadastrar pessoa!')
-            console.log(error)
+            alert('Erro ao cadastrar pessoa!' + error)
+            
         }
         
     }
@@ -79,17 +79,18 @@ const CadastroPessoaForm = () => {
             <h4 className='mb-3 mt-3'>Formulário</h4>
             <form onSubmit={handleNewPessoa} className='cadastroPessoaForm'>
                 <div className='mb-3'>
-                    <label className='form-label'>Nome</label>
-                    <input className='form-control' type="text" placeholder="Digite seu nome" />
+                    <label className='form-label'
+                    htmlFor='nome'>Nome</label>
+                    <input className='form-control' type="text" name = 'nome' value={nome} placeholder="Digite seu nome" onChange={e => setNome(e.target.value)}/>
                 </div>
                 <div className='mb-3'>
-                    <label className="form-label">CPF</label>
-                    <input className='form-control' type="text" placeholder="Digite seu CPF" />
+                    <label className="form-label" htmlFor='documento'>CPF</label>
+                    <input className='form-control' type="text" name='documento' value={documento} placeholder="Digite seu CPF" onChange={e => setDocumento(e.target.value)}/>
                 </div>
                 <div className='mb-3'>
-                    <label className="form-label">Tipo Sanguíneo</label>
-                    <select className='form-select tipos_sanguineos'>
-                        <option selected disabled>Selecione</option>
+                    <label className="form-label" htmlFor='tipo_sanguineo_id'>Tipo Sanguíneo</label>
+                    <select className='form-select tipos_sanguineos' name='tiposSanguineos' id='tiposSanguineos' value={tipo_sanguineo_id} onChange={e => setTipoSanguineoId(parseInt(e.target.value))} >
+                        <option selected disabled>Selecione:</option>
                         {tiposSanguineos.map(tipo => (
                             <option key={tipo.id} value={tipo.id}>{tipo.tipo}{tipo.fator}</option>
                         ))}
@@ -107,7 +108,7 @@ const CadastroPessoaForm = () => {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Cidade</label>
-                    <select className='form-select cidades'>
+                    <select className='form-select cidades' onChange={e => setCidades}>
                         <option selected disabled>Selecione</option>
                         {cidades.map(cidade => (
                             <option key={cidade.id} value={cidade.id}>{cidade.nome}</option>
@@ -116,15 +117,15 @@ const CadastroPessoaForm = () => {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Rua</label>
-                    <input className='form-control' type="text" placeholder="Digite sua rua" />
+                    <input className='form-control' type="text" placeholder="Digite sua rua" onChange={e => setRua(e.target.value)}/>
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Número</label>
-                    <input className='form-control' type="text" placeholder="Digite seu número" />
+                    <input className='form-control' type="text" placeholder="Digite seu número" onChange={e => setNumero(e.target.value)}/>
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Complemento</label>
-                    <input className='form-control' type="text" placeholder="Digite seu complemento" />
+                    <label className="form-label" htmlFor='complemento'>Complemento</label>
+                    <input className='form-control' type="text" placeholder="Digite seu complemento" onChange={e => setComplemento(e.target.value)} />
                 </div>
                 <button type="submit">Enviar</button>
             </form>

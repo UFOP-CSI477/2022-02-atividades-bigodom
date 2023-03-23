@@ -1,0 +1,8 @@
+.bloco{
+    border-radius: 20px;
+}
+@media screen and (min-width: 768px) {
+    .bloco{
+        width: 46vw;
+    }
+}

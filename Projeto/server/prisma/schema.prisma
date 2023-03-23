@@ -18,7 +18,7 @@ model Carro {
   marca      String
   cpfCliente String
 
-  cliente    Cliente       @relation(fields: [cpfCliente], references: [cpf])
+  cliente    Cliente      @relation(fields: [cpfCliente], references: [cpf])
   Manutencao Manutencao[]
 }
 
@@ -29,7 +29,7 @@ model Cliente {
   birthDate DateTime
   email     String
 
-  carro     Carro[]
+  carro Carro[]
 }
 
 model Manutencao {

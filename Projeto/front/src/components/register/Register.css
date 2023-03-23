@@ -1,0 +1,26 @@
+.register{
+    width: 450px;
+    height: 400px;
+    margin-top: 7vw;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.066);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.register-content{
+    width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .register{
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        border: none;
+        border-radius: 0;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+}

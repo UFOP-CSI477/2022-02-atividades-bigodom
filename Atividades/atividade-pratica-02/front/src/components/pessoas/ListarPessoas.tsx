@@ -31,6 +31,8 @@ const ListarPessoas = () => {
 
     return (
         <div>
+            <div className="container">
+
             <h1>Listar Pessoas</h1>
             <ul>
                 {pessoas.map(pessoa => (
@@ -46,6 +48,7 @@ const ListarPessoas = () => {
                     </li>
                 ))}
             </ul>
+            </div>
         </div>
     );
 };
