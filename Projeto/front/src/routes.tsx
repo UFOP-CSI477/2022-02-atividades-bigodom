@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import ListarCarro from "./components/carro/ListarCarro";
 import ListarManutencao from "./components/manutencao/ListarManutencao";
 import ListarCliente from "./components/cliente/ListarCliente";
+import CadastrarCliente from "./components/cliente/CadastrarCliente";
 
 
 const AppRoutes = () => {
@@ -48,18 +49,18 @@ const AppRoutes = () => {
                             <ListarManutencao />
                         </>
                     } />
-                <Route path="/listarcliente"
+                <Route path="/listarclientes"
                     element={
                         <>
                             <Navbar />
                             <ListarCliente />
                         </>
                     } />
-                <Route path="/cadastrarmanutencao"
+                <Route path="/cadastrarcliente"
                     element={
                         <>
                             <Navbar />
-                            <ListarCarro />
+                            <CadastrarCliente />
                         </>
                     } />
 

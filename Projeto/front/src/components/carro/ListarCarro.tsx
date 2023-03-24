@@ -21,6 +21,25 @@ const ListarCarro = () => {
         });
     }, []);
 
+    const handleDeleteCarro = async (id: number) => {
+
+        // Validações
+        if ( !window.confirm( "Confirma exclusão da carro?" ) ) {
+            return
+        }
+
+        try {
+            await api.delete(`/carros/${id}`);
+            const newCarros = carros.filter(carros => carros.id !== id);
+            setCarros(newCarros);
+
+        } catch(error) {
+            alert("Erro na exclusão da carro!");
+            console.error(error);
+        }
+
+    }
+
     return (
         <div className='container'>
 
@@ -32,8 +51,11 @@ const ListarCarro = () => {
                         <p>Marca: {carros.marca}</p>
                         <p>Placa: {carros.placa}</p>
                         <p>Cor: {carros.cor}</p>
+                        <button onClick={()=>handleDeleteCarro(carros.id)}>Excluir</button>
                     </li>
+                    
                 ))}
+                
             </ul>
         </div>
     )

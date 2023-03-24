@@ -26,6 +26,24 @@ const ListarManutencao = () => {
         });
     }, []);
 
+    const handleDeleteManutencao = async (id: number) => {
+
+        // Validações
+        if ( !window.confirm( "Confirma exclusão da manutenção?" ) ) {
+            return
+        }
+
+        try {
+            await api.delete(`/manutencoes/${id}`);
+            const newManutencoes = manutencoes.filter(manutencoes => manutencoes.id !== id);
+            setmanutencoes(newManutencoes);
+        } catch(error) {
+            alert("Erro na exclusão da manutenção!");
+            console.error(error);
+        }
+    }
+
+
     return (
         <div className='container'>
 
@@ -38,8 +56,12 @@ const ListarManutencao = () => {
                         <p>Descrição: {manutencoes.description}</p>
                         <p>Preço: {manutencoes.price}</p>
                         <p>Status: {manutencoes.status}</p>
+                        <button onClick={() => handleDeleteManutencao(manutencoes.id)}>Excluir</button>
                     </li>
+                    
                 ))}
+                
+
             </ul>
         </div>
     )
